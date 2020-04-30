@@ -1,0 +1,22 @@
+{
+  "name": "frise",
+  "version": "1.0.0",
+  "description": "https://soliman-beep.github.io/frise/",
+  "main": "index.js",
+  "scripts": {
+    "dev": "browser-sync start --server --files '**/*.css, **/*.js, **/*.html, !node_modules' --directory --port 7777"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soliman-beep/frise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soliman-beep/frise/issues"
+  },
+  "homepage": "https://github.com/Soliman-beep/frise#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.7"
+  }
+}
