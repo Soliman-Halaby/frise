@@ -1,3 +1,3 @@
 # frise
 
-https://soliman-beep.github.io/frise/
+https://soliman-Halaby.github.io/frise/
