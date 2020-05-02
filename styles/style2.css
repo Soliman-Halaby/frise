@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap%27');
+
+body
+{
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    user-select: none;
+}
+
+.container
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/backgrounds/background_index.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hetic_logo
+{  
+    margin: 20px;
+    width: 60px;
+}
+
+h1
+{
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 5vw;
+}
+.title
+{
+    width: 100vw;
+    text-align: center;
+    background: #ffffff70;
+    padding: 10px 0px;
+    margin-bottom: 30px;
+}
+
+.rule
+{
+    width: 960px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 20px;
+    background: #ffffff50;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    transition: 0.4s ease;
+}
+
+.rule:hover
+{
+    transform: scale(1.015);
+    transition: 0.4s ease;
+
+}
+
+.point
+{
+    font-size: 115px;
+    margin: 15px;
+}
+
+.ruleText1
+{
+    font-size: 30px;
+    width: 580px;
+}
+
+.arrows
+{
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.arrow
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 7px;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.arrowContent
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 2.5px solid #DDA171;
+    display: flex;
+    align-items: center;
+}
+
+.arrowContent:hover
+{
+    box-shadow: 0px 0px 5px #DDA171,
+    inset 0px 0px 5px #DDA171;
+}
+
+.arrowLeft
+{
+    width: 30px;
+}
+
+.arrowRight
+{
+    width: 30px;
+    margin-left: 8px;
+}
+
+.ruleText2
+{
+    font-size: 30px;
+}
+
+.buttonContainer
+{
+    display: flex;
+    justify-content: center;
+}
+.button
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 70px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    margin: 60px;
+    cursor: pointer;
+}
+
+.continueButton
+{
+    width: 480px;
+    height: 50px;
+    border-radius: 35px;
+    border: 3px solid #DDA171;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.continueButton:hover
+{
+    box-shadow: 0px 0px 5px #DDA171,
+    inset 0px 0px 5px #DDA171;
+}
+
+.buttonText
+{
+    text-align: center;
+    width: 480px;
+    text-transform: uppercase;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease;
+}
+
+.buttonText:hover
+{
+    transform: scale(1.05);
+    transition: 0.4s ease;
+}
+.arr
+{
+    color: #DDA171;
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.credit
+{
+    height: 150px;
+    margin-top: 30px;
+    display: flex;
+    align-items: flex-end;
+    color: #FFFFFF;
+}
+.name
+{
+    font-weight: 700;
+}
