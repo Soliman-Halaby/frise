@@ -138,12 +138,12 @@ loader_bg.onComplete.add((loader) => {
     setSpritePosition(sprite_doors[2], 11720, 0)
     setSpritePosition(sprite_doors[3], 15660, 0)
     setSpritePosition(sprite_fg, 0, 89)
-    setSpritePosition(sprite_fg2, 3940, 109)
-    setSpritePosition(sprite_fg3, 7880, 89)
+    setSpritePosition(sprite_fg3, 3940, 109)
+    setSpritePosition(sprite_fg2, 7880, 89)
     setSpritePosition(sprite_fg4, 11820, 89)
     setSpritePosition(sprite_fg5, 15760, 89)
-    setSpritePosition(sprite_bg2, 3940, 0 )
-    setSpritePosition(sprite_bg3, 7880, 0)
+    setSpritePosition(sprite_bg3, 3940, 0 )
+    setSpritePosition(sprite_bg2, 7880, 0)
     setSpritePosition(sprite_bg4, 11820, 0)
     setSpritePosition(sprite_bg5, 15760, 0)
     setSpritePosition(sprite_char, 500, window.innerHeight - 10)
@@ -214,8 +214,8 @@ window.addEventListener('keyup', (event) =>
 function ScrollBg() {
     bg_x += bg_speed
     sprite_bg.position.x = bg_x
-    sprite_bg2.position.x = bg_x + 3940
-    sprite_bg3.position.x = bg_x + 7880
+    sprite_bg3.position.x = bg_x + 3940
+    sprite_bg2.position.x = bg_x + 7880
     sprite_bg4.position.x = bg_x + 11820
     sprite_bg5.position.x = bg_x + 15760
     sprite_doors[0].position.x = bg_x + loader_bg.resources.pl1_bg.texture.width
@@ -223,8 +223,8 @@ function ScrollBg() {
     sprite_doors[2].position.x = bg_x + 11720
     sprite_doors[3].position.x = bg_x + 15660
     sprite_fg.position.x = bg_x
-    sprite_fg2.position.x = bg_x + 3940 
-    sprite_fg3.position.x = bg_x + 7880 
+    sprite_fg3.position.x = bg_x + 3940 
+    sprite_fg2.position.x = bg_x + 7880 
     sprite_fg4.position.x = bg_x + 11820
     sprite_fg5.position.x = bg_x + 15760 
 
