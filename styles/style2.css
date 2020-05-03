@@ -173,6 +173,11 @@ h1
     inset 0px 0px 5px #DDA171;
 }
 
+a
+{
+    text-decoration: none;
+    color: #000000;
+}
 .buttonText
 {
     text-align: center;
