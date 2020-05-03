@@ -5,6 +5,7 @@ let bg = new PIXI.Application({
 })
 
 const boissier_frames = [
+    "./assets/char/vide.png",
     "./assets/char/fem1.png",
     "./assets/char/fem2.png",
     "./assets/char/fem3.png",
@@ -14,6 +15,22 @@ const boissier_frames = [
     "./assets/char/fem7.png",
     "./assets/char/fem8.png"
 ]
+
+const boissier_frames2 = [
+    "./assets/char/vide.png",
+    "./assets/char/fem1r.png",
+    "./assets/char/fem2r.png",
+    "./assets/char/fem3r.png",
+    "./assets/char/fem4r.png",
+    "./assets/char/fem5r.png",
+    "./assets/char/fem6r.png",
+    "./assets/char/fem7r.png",
+    "./assets/char/fem8r.png"
+]
+
+// const boissier_frames3 = [
+//     "./assets/char/femFace.png"
+// ]
 
 const loader_bg = new PIXI.Loader("./assets")
 loader_bg.add('pl1_bg', 'backgrounds/planche1-bg.png')
@@ -28,10 +45,12 @@ loader_bg.add('pl5_bg', 'backgrounds/planche5-bg.png')
 loader_bg.add('pl5_fg', 'backgrounds/planche5-fg.png')
 loader_bg.add('door', 'backgrounds/door.png')
 loader_bg.add('ground', 'backgrounds/ground.png')
-loader_bg.add('boissier_front', boissier_frames)
+loader_bg.add('boissier_front', boissier_frames, boissier_frames2)
 loader_bg.load()
 let themes = 1
 let sprite_char
+let sprite_char2
+// let sprite_char3
 let sprite_bg
 let sprite_fg
 let sprite_bg2
@@ -119,6 +138,22 @@ loader_bg.onComplete.add((loader) => {
             loader.resources.door.texture.height
         )
     }
+    sprite_char2 = new PIXI.AnimatedSprite.fromFrames(boissier_frames2)
+    for (let index = 0; index < 5; index++) {
+        sprite_doors[index] = new PIXI.Sprite(
+            loader.resources.door.texture,
+            loader.resources.door.texture.width,
+            loader.resources.door.texture.height
+        )
+    }
+    // sprite_char3 = new PIXI.AnimatedSprite.fromFrames(boissier_frames3)
+    // for (let index = 0; index < 5; index++) {
+    //     sprite_doors[index] = new PIXI.Sprite(
+    //         loader.resources.door.texture,
+    //         loader.resources.door.texture.width,
+    //         loader.resources.door.texture.height
+    //     )
+    // }
     sprite_ground.position.y = window.innerHeight - 136
     sprite_fg.scale.y = 0.75
     sprite_fg.scale.x = 0.75
@@ -133,6 +168,12 @@ loader_bg.onComplete.add((loader) => {
     sprite_char.scale.y = 1.4
     sprite_char.scale.x = 1.4
     sprite_char.anchor.y = 1
+    sprite_char2.scale.y = 1.4
+    sprite_char2.scale.x = 1.4
+    sprite_char2.anchor.y = 1
+    // sprite_char3.scale.y = 1.4
+    // sprite_char3.scale.x = 1.4
+    // sprite_char3.anchor.y = 1
     setSpritePosition(sprite_doors[0], 500, 0)
     setSpritePosition(sprite_doors[1], 7780, 0)
     setSpritePosition(sprite_doors[2], 11720, 0)
@@ -147,6 +188,8 @@ loader_bg.onComplete.add((loader) => {
     setSpritePosition(sprite_bg4, 11820, 0)
     setSpritePosition(sprite_bg5, 15760, 0)
     setSpritePosition(sprite_char, 500, window.innerHeight - 10)
+    setSpritePosition(sprite_char2, 500, window.innerHeight - 10)
+    // setSpritePosition(sprite_char3, 500, window.innerHeight - 10)
     bg.stage.addChild(sprite_bg)
     bg.stage.addChild(sprite_bg2)
     bg.stage.addChild(sprite_bg3)
@@ -158,6 +201,8 @@ loader_bg.onComplete.add((loader) => {
     bg.stage.addChild(sprite_fg4)
     bg.stage.addChild(sprite_fg5)
     bg.stage.addChild(sprite_char)
+    bg.stage.addChild(sprite_char2)
+    // bg.stage.addChild(sprite_char3)
     bg.stage.addChild(sprite_doors[0])
     bg.stage.addChild(sprite_doors[1])
     bg.stage.addChild(sprite_doors[2])
@@ -181,16 +226,21 @@ window.addEventListener('keydown', (event) =>
         {
             bg_speed = -3
             sprite_char.animationSpeed = 0.09
+            sprite_char2.gotoAndStop (0)
             sprite_char.play()
         }
         else if(event.code === "ArrowLeft")
         {
             bg_speed = +3
-            sprite_char.animationSpeed = 0.09
-            sprite_char.play()
+            sprite_char2.animationSpeed = 0.09
+            sprite_char.gotoAndStop (0)
+            sprite_char2.play()
         }
         else if(event.code === "ArrowDown") {
             bg_speed -= 2000
+        }
+        else{
+            // sprite_char3.play()
         }
 })
 
@@ -199,11 +249,14 @@ window.addEventListener('keyup', (event) =>
     if(event.code === "ArrowRight")
     {
         bg_speed = 0
-        sprite_char.gotoAndStop(0)
+        sprite_char.gotoAndStop (1)
+        // sprite_char3.play()
     }
     else if(event.code === "ArrowLeft")
     {
         bg_speed = 0 
+        sprite_char2.gotoAndStop (1)
+        // sprite_char3.play()
 
     }
     else if(event.code === "Space") {
