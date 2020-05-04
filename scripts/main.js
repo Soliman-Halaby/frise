@@ -228,7 +228,8 @@ window.addEventListener('keydown', (event) =>
         }
         sprite_char.animationSpeed = 0.09
         sprite_char.play()
-
+    } else if (event.code === "ArrowDown" && bg_speed > -3000) {
+        bg_speed -= 3000
     }
 })
 
