@@ -15,6 +15,17 @@ const boissier_frames = [
     "./assets/char/fem8.png"
 ]
 
+const boissier_frames_r = [
+    "./assets/char/boissier-1r.png",
+    "./assets/char/boissier-2r.png",
+    "./assets/char/boissier-3r.png",
+    "./assets/char/boissier-4r.png",
+    "./assets/char/boissier-5r.png",
+    "./assets/char/boissier-6r.png",
+    "./assets/char/boissier-7r.png",
+    "./assets/char/boissier-8r.png"
+]
+
 const loader_bg = new PIXI.Loader("./assets")
 loader_bg.add('pl1_bg', 'backgrounds/planche1-bg.png')
 loader_bg.add('pl1_fg', 'backgrounds/planche1-fg.png')
@@ -29,6 +40,7 @@ loader_bg.add('pl5_fg', 'backgrounds/planche5-fg.png')
 loader_bg.add('door', 'backgrounds/door.png')
 loader_bg.add('ground', 'backgrounds/ground.png')
 loader_bg.add('boissier_front', boissier_frames)
+loader_bg.add('boissier_reverse', boissier_frames_r)
 loader_bg.load()
 let themes = 1
 let sprite_char
@@ -44,7 +56,7 @@ let sprite_bg5
 let sprite_fg5
 let sprite_ground
 let sprite_doors = []
-
+let left = false
 let bg_x = 0
 let bg_speed = 0
 
@@ -176,22 +188,51 @@ function loop() {
 }
 
 window.addEventListener('keydown', (event) =>
-{   
-        if(event.code === "ArrowRight")
-        {
-            bg_speed = -3
-            sprite_char.animationSpeed = 0.09
-            sprite_char.play()
+{
+    if(event.code === "ArrowRight")
+    {
+        bg_speed = -3
+        if (left) {
+            sprite_char.destroy()
+            sprite_char = new PIXI.AnimatedSprite.fromFrames(boissier_frames)
+            setSpritePosition(sprite_char, 500, window.innerHeight - 10)
+            sprite_char.scale.y = 1.4
+            sprite_char.scale.x = 1.4
+            sprite_char.anchor.y = 1
+            bg.stage.addChild(sprite_char)
+            bg.stage.addChild(sprite_doors[0])
+            bg.stage.addChild(sprite_doors[1])
+            bg.stage.addChild(sprite_doors[2])
+            bg.stage.addChild(sprite_doors[3])
+            left = false
         }
-        else if(event.code === "ArrowLeft")
-        {
-            bg_speed = +3
-            sprite_char.animationSpeed = 0.09
-            sprite_char.play()
+        sprite_char.animationSpeed = 0.09
+        sprite_char.play()
+    }
+    else if(event.code === "ArrowLeft")
+    {
+        bg_speed = +3
+        if (!left) {
+            sprite_char.destroy()
+            sprite_char = new PIXI.AnimatedSprite.fromFrames(boissier_frames_r)
+            setSpritePosition(sprite_char, 500, window.innerHeight - 10)
+            sprite_char.scale.y = 1.4
+            sprite_char.scale.x = 1.4
+            sprite_char.anchor.y = 1
+            bg.stage.addChild(sprite_char)
+            bg.stage.addChild(sprite_doors[0])
+            bg.stage.addChild(sprite_doors[1])
+            bg.stage.addChild(sprite_doors[2])
+            bg.stage.addChild(sprite_doors[3])
+            left = true
         }
-        else if(event.code === "ArrowDown") {
-            bg_speed -= 2000
-        }
+        sprite_char.animationSpeed = 0.09
+        sprite_char.play()
+
+    }
+    else if(event.code === "ArrowDown") {
+        bg_speed -= 2000
+    }
 })
 
 window.addEventListener('keyup', (event) =>
@@ -204,7 +245,7 @@ window.addEventListener('keyup', (event) =>
     else if(event.code === "ArrowLeft")
     {
         bg_speed = 0 
-
+        sprite_char.gotoAndStop(0)
     }
     else if(event.code === "Space") {
         bg_x = 0
