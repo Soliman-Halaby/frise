@@ -267,5 +267,6 @@ function ScrollBg() {
     sprite_fg5.position.x = bg_x + 15760 
 
     if(bg_x < -19000) bg_x = 0
+    if(bg_x > 531) bg_x = 0
     
 }
